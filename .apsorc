@@ -1,0 +1,130 @@
+{
+  "entities": [
+    {
+      "name": "Todo",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "status",
+          "type": "enum",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false,
+          "values": [
+            "pending",
+            "completed",
+            "in-progress"
+          ]
+        },
+        {
+          "name": "due_date",
+          "type": "date",
+          "nullable": true,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    },
+    {
+      "name": "User",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "username",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        },
+        {
+          "name": "email",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        },
+        {
+          "name": "password_hash",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    },
+    {
+      "name": "Comment",
+      "created_at": true,
+      "updated_at": true,
+      "fields": [
+        {
+          "name": "todo_id",
+          "type": "integer",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": false
+        },
+        {
+          "name": "content",
+          "type": "text",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Todo",
+      "to": "User",
+      "type": "ManyToOne"
+    },
+    {
+      "from": "Comment",
+      "to": "Todo",
+      "type": "ManyToOne"
+    },
+    {
+      "from": "Comment",
+      "to": "User",
+      "type": "ManyToOne"
+    }
+  ]
+}
