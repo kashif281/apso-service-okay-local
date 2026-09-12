@@ -49,7 +49,7 @@
     "@nestjsx/crud": "4.5.0",
     "@nestjsx/crud-request": "4.5.0",
     "@nestjsx/crud-typeorm": "4.5.0",
-    "@types/aws-lambda": "^8.10.147",
+    "@types/aws-lambda": "^8.10.157",
     "@vendia/serverless-express": "^4.12.6",
     "aws-lambda": "^1.0.7",
     "class-transformer": "^0.5.1",
